@@ -20,30 +20,30 @@ bool Parser::hasMoreCommands(){
 }
 
 void Parser::advance(){
-  string command;
+  std::string command;
   getline(fin, command);
   currentCommand = clearCommand(command);
 }
 
-int Parser::commandType(){
+commandType Parser::commandType(){
   if(currentCommand[0] == '@'){
     //A-command
-    return 0;
+    return A_Command;
   } 
   else if(currentCommand[0] ==  '('){
     //L-command
-    return 2;
+    return L_Command;
   } 
   else if(currentCommand.find("=") != string::npos || currentCommand.find(";") != string::npos){
       //C-command
-    return 1;
+    return C_Command;
   }
-  return 100;
+  return Not_A_Command;
 }
 
 std::string Parser::symbol(){
-  if(commandType() == 0) return currentCommand.substr(1,currentCommand.size()-2);
-  else return currentCommand.substr(1, currentCommand.length() - 2);
+  if(commandType() == A_Command) return currentCommand.substr(1,currentCommand.length() - 1); //A_Command
+  else return currentCommand.substr(1, currentCommand.length() - 2); //L_Command
 }
 
 std::string Parser::dest(){ 
@@ -55,13 +55,13 @@ std::string Parser::comp(){
   int start = 0;
   int end = currentCommand.length();
   if(currentCommand.find("=") != string::npos) start = currentCommand.find("=") + 1;
-  if(currentCommand.find(";") != string::npos) end = currentCommand.find(";");
+  if(currentCommand.find(";") != string::npos) end = currentCommand.find(";") + 1;
   return currentCommand.substr(start, end - start - 1);
 }
 
 std::string Parser::jump(){
   if(currentCommand.find(";") == string::npos) return "null";
-  else return currentCommand.substr(currentCommand.find(";") + 1);
+  else return currentCommand.substr(currentCommand.find(";") + 1, 3);
 }
 
 string Parser::clearCommand(string command){

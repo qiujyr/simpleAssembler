@@ -13,12 +13,12 @@ int main(int argc, char* argv[]){
   std::string finalCode;
   while(parser -> hasMoreCommands()){
     parser -> advance();
-    if(parser -> commandType() == 0){
+    if(parser -> commandType() == A_Command){
       int intSymbol = atoi((parser -> symbol()).c_str());
       bitset<15> binarySymbol(intSymbol);
       finalCode += "0" + binarySymbol.to_string() + "\n";
     }
-    else if(parser -> commandType() == 1){
+    else if(parser -> commandType() == C_Command){
       finalCode += "111" 
 	+ code -> comp(parser -> comp())
 	+ code -> dest(parser -> dest())

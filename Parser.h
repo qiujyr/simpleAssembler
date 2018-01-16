@@ -5,6 +5,13 @@
 
 using namespace std;
 
+enum commandType{
+  A_Command, //@Xxx where Xxx is either a symbol or a decimal number
+  C_Command, //dest=comp;jump
+  L_Command, //(Xxx) where Xxx is a symbol
+  Not_A_Command
+};
+
 class Parser{
  public:
   /** Constructor: open the input file/stream and gets ready to parse it 
@@ -26,8 +33,8 @@ class Parser{
 
   /** Determine the type of the command
    *
-   *  @return a type of command: 0 represents A-command, 1 represents C-command, 2 represents L-command */
-  int commandType();
+   *  @return The type of command */
+  commandType commandType();
 
   /** Symbol or decimal Xxx of the current command @Xxx
    *  should be called only when commandType() is A_Command or L_Command
