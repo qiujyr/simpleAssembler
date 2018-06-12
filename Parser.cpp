@@ -25,7 +25,7 @@ void Parser::advance(){
   currentCommand = clearCommand(command);
 }
 
-commandType Parser::commandType(){
+cmdType Parser::commandType(){
   if(currentCommand[0] == '@'){
     //A-command
     return A_Command;

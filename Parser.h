@@ -5,7 +5,7 @@
 
 using namespace std;
 
-enum commandType{
+enum cmdType{
   A_Command, //@Xxx where Xxx is either a symbol or a decimal number
   C_Command, //dest=comp;jump
   L_Command, //(Xxx) where Xxx is a symbol
@@ -34,7 +34,7 @@ class Parser{
   /** Determine the type of the command
    *
    *  @return The type of command */
-  commandType commandType();
+  cmdType commandType();
 
   /** Symbol or decimal Xxx of the current command @Xxx
    *  should be called only when commandType() is A_Command or L_Command
