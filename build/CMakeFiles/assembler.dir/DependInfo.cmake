@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/qiujyr/cs/nandToTetris/simpleAssembler/Code.cpp" "/home/qiujyr/cs/nandToTetris/simpleAssembler/build/CMakeFiles/assembler.dir/Code.cpp.o"
   "/home/qiujyr/cs/nandToTetris/simpleAssembler/Parser.cpp" "/home/qiujyr/cs/nandToTetris/simpleAssembler/build/CMakeFiles/assembler.dir/Parser.cpp.o"
+  "/home/qiujyr/cs/nandToTetris/simpleAssembler/SymbolTable.cpp" "/home/qiujyr/cs/nandToTetris/simpleAssembler/build/CMakeFiles/assembler.dir/SymbolTable.cpp.o"
   "/home/qiujyr/cs/nandToTetris/simpleAssembler/assembler.cpp" "/home/qiujyr/cs/nandToTetris/simpleAssembler/build/CMakeFiles/assembler.dir/assembler.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

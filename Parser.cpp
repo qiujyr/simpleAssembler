@@ -42,8 +42,12 @@ cmdType Parser::commandType(){
 }
 
 std::string Parser::symbol(){
-  if(commandType() == A_Command) return currentCommand.substr(1,currentCommand.length() - 1); //A_Command
-  else return currentCommand.substr(1, currentCommand.length() - 2); //L_Command
+  if(commandType() == A_Command){
+    return currentCommand.substr(1);
+  }
+  else if(commandType() == L_Command){
+    return currentCommand.substr(1, currentCommand.length() - 2);
+  }
 }
 
 std::string Parser::dest(){ 
@@ -54,9 +58,13 @@ std::string Parser::dest(){
 std::string Parser::comp(){
   int start = 0;
   int end = currentCommand.length();
-  if(currentCommand.find("=") != string::npos) start = currentCommand.find("=") + 1;
-  if(currentCommand.find(";") != string::npos) end = currentCommand.find(";") + 1;
-  return currentCommand.substr(start, end - start - 1);
+  if(currentCommand.find("=") != string::npos){
+    start = currentCommand.find("=") + 1;
+  }
+  if(currentCommand.find(";") != string::npos){
+    end = currentCommand.find(";");
+  }
+  return currentCommand.substr(start, end - start);
 }
 
 std::string Parser::jump(){
@@ -66,10 +74,11 @@ std::string Parser::jump(){
 
 string Parser::clearCommand(string command){
   command.erase(remove(command.begin(),command.end(),' '),command.end());
+  command.erase(remove(command.begin(),command.end(),'\n'),command.end());
   if(command.find("//") != string::npos){
     return command.substr(0,command.find("//"));
   } else{
-    return command;
+    return command.substr(0,command.length() - 1);
   }
 }
 

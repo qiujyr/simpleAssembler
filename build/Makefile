@@ -177,6 +177,33 @@ Parser.cpp.s:
 	$(MAKE) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/Parser.cpp.s
 .PHONY : Parser.cpp.s
 
+SymbolTable.o: SymbolTable.cpp.o
+
+.PHONY : SymbolTable.o
+
+# target to build an object file
+SymbolTable.cpp.o:
+	$(MAKE) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/SymbolTable.cpp.o
+.PHONY : SymbolTable.cpp.o
+
+SymbolTable.i: SymbolTable.cpp.i
+
+.PHONY : SymbolTable.i
+
+# target to preprocess a source file
+SymbolTable.cpp.i:
+	$(MAKE) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/SymbolTable.cpp.i
+.PHONY : SymbolTable.cpp.i
+
+SymbolTable.s: SymbolTable.cpp.s
+
+.PHONY : SymbolTable.s
+
+# target to generate assembly for a file
+SymbolTable.cpp.s:
+	$(MAKE) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/SymbolTable.cpp.s
+.PHONY : SymbolTable.cpp.s
+
 assembler.o: assembler.cpp.o
 
 .PHONY : assembler.o
@@ -219,6 +246,9 @@ help:
 	@echo "... Parser.o"
 	@echo "... Parser.i"
 	@echo "... Parser.s"
+	@echo "... SymbolTable.o"
+	@echo "... SymbolTable.i"
+	@echo "... SymbolTable.s"
 	@echo "... assembler.o"
 	@echo "... assembler.i"
 	@echo "... assembler.s"

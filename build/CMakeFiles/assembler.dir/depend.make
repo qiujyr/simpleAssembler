@@ -7,7 +7,11 @@ CMakeFiles/assembler.dir/Code.cpp.o: ../Code.h
 CMakeFiles/assembler.dir/Parser.cpp.o: ../Parser.cpp
 CMakeFiles/assembler.dir/Parser.cpp.o: ../Parser.h
 
+CMakeFiles/assembler.dir/SymbolTable.cpp.o: ../SymbolTable.cpp
+CMakeFiles/assembler.dir/SymbolTable.cpp.o: ../SymbolTable.h
+
 CMakeFiles/assembler.dir/assembler.cpp.o: ../Code.h
 CMakeFiles/assembler.dir/assembler.cpp.o: ../Parser.h
+CMakeFiles/assembler.dir/assembler.cpp.o: ../SymbolTable.h
 CMakeFiles/assembler.dir/assembler.cpp.o: ../assembler.cpp
 

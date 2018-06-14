@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/assembler.dir/assembler.cpp.o"
   "CMakeFiles/assembler.dir/Code.cpp.o"
   "CMakeFiles/assembler.dir/Parser.cpp.o"
+  "CMakeFiles/assembler.dir/SymbolTable.cpp.o"
   "assembler.pdb"
   "assembler"
 )

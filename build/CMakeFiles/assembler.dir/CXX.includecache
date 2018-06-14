@@ -30,6 +30,16 @@ fstream
 string
 -
 
+/home/qiujyr/cs/nandToTetris/simpleAssembler/SymbolTable.cpp
+SymbolTable.h
+/home/qiujyr/cs/nandToTetris/simpleAssembler/SymbolTable.h
+
+/home/qiujyr/cs/nandToTetris/simpleAssembler/SymbolTable.h
+string
+-
+map
+-
+
 /home/qiujyr/cs/nandToTetris/simpleAssembler/assembler.cpp
 iostream
 -
@@ -45,4 +55,6 @@ Parser.h
 /home/qiujyr/cs/nandToTetris/simpleAssembler/Parser.h
 Code.h
 /home/qiujyr/cs/nandToTetris/simpleAssembler/Code.h
+SymbolTable.h
+/home/qiujyr/cs/nandToTetris/simpleAssembler/SymbolTable.h
 

@@ -10,10 +10,10 @@ class SymbolTable{
 
   void addEntry(std::string symbol, int address);
   bool contains(std::string symbol);
-  getAddress(std::string symbol);
+  int getAddress(std::string symbol);
 
  private:
-  map<std::string, int> table;
+  std::map<std::string, int> table;
 };
 
 #endif

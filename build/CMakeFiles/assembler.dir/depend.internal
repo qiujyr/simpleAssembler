@@ -7,7 +7,11 @@ CMakeFiles/assembler.dir/Code.cpp.o
 CMakeFiles/assembler.dir/Parser.cpp.o
  /home/qiujyr/cs/nandToTetris/simpleAssembler/Parser.cpp
  /home/qiujyr/cs/nandToTetris/simpleAssembler/Parser.h
+CMakeFiles/assembler.dir/SymbolTable.cpp.o
+ /home/qiujyr/cs/nandToTetris/simpleAssembler/SymbolTable.cpp
+ /home/qiujyr/cs/nandToTetris/simpleAssembler/SymbolTable.h
 CMakeFiles/assembler.dir/assembler.cpp.o
  /home/qiujyr/cs/nandToTetris/simpleAssembler/Code.h
  /home/qiujyr/cs/nandToTetris/simpleAssembler/Parser.h
+ /home/qiujyr/cs/nandToTetris/simpleAssembler/SymbolTable.h
  /home/qiujyr/cs/nandToTetris/simpleAssembler/assembler.cpp
