@@ -1,3 +1,0 @@
-/home/qiujyr/cs/nandToTetris/simpleAssembler/build/CMakeFiles/rebuild_cache.dir
-/home/qiujyr/cs/nandToTetris/simpleAssembler/build/CMakeFiles/assembler.dir
-/home/qiujyr/cs/nandToTetris/simpleAssembler/build/CMakeFiles/edit_cache.dir
