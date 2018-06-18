@@ -97,3 +97,7 @@ std::string Parser::clearCommand(std::string command){
   }
   return command;
 }
+
+std::string Parser::getCmd() {
+	return currentCommand;
+}

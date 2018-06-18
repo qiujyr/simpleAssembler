@@ -1,6 +1,7 @@
 #ifndef _CODE_WRITER_
 #define _CODE_WRITER_
 
+#include "Parser.h"
 #include <fstream>
 #include <string>
 class CodeWriter{
@@ -19,7 +20,7 @@ class CodeWriter{
    *
    *  @praram filename, the new vm file 
    */
-  void setFileName(std::string filename);
+  void setFileName(std::string fname);
 
   /** 
    *  writes the assembly code that is the translation of 
@@ -44,8 +45,10 @@ class CodeWriter{
    * closes the output file
    */
   void close();
+
  private:
   std::ofstream fout;
+  std::string filename;
 };
 
 #endif

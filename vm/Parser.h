@@ -26,23 +26,40 @@ class Parser{
   ~Parser(); //destroctor
   bool hasMoreCommands();
 
-  /** reads the next cmd and make it the current cmd after 
-   *  clear the space and comment */
+  /** 
+   *  reads the next cmd and make it the current cmd after 
+   *  clear the space and comment
+   */
   void advance();
 
-  /** return the type of the cmd */
+  /** 
+   *  @return the type of the cmd 
+   */
   cmdType commandType();
 
   /** return the first arg, return the cmd in case of C_ARITHMETIC
    *
-   * @pre should not be called if the current cmd is C_RETURN */
+   * @pre should not be called if the current cmd is C_RETURN
+   *
+   * @return the first argument
+   */
   std::string arg1(); 
 
   /** return the second arg
    *
    * @pre should be called only if the current cmd is C_PUSH, C_POP,
-   *      C_FUNCTION, C_CALL */
+   *      C_FUNCTION, C_CALL
+   *
+   * @return the second argument
+   */
   int arg2();
+
+  /**
+	*  getter
+	*
+	*  @return the current command
+	*/
+  std::string getCmd();
 
  private:
   std::string clearCommand(std::string command);
