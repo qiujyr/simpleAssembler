@@ -18,7 +18,7 @@ class CodeWriter{
    *  informs the code writer that the translation of
    *  a new VM file is started
    *
-   *  @praram filename, the new vm file 
+   *  @praram filename, the vm file to be translated
    */
   void setFileName(std::string fname);
 
