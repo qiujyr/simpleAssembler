@@ -1,20 +1,21 @@
+#include <iostream>
 #include "Parser.h"
 #include "CodeWriter.h"
+#include <string>
 
 int main(int argc, char* argv[]) {
   std::string filename = argv[1];
   Parser parser(filename);
-  CodeWriter codeWriter(filename);
-  std::string finalCode;
+  std::string outputFile(filename.substr(0,filename.find(".vm")));
+  outputFile += ".asm";
+  CodeWriter codeWriter(outputFile);
   while (parser.hasMoreCommands()) {
     parser.advance();
-    switch (parser.commandType()) {
-    case C_ARITHMETIC:
-      finalCode += codeWriter.writeArithmetic(parser.getCmd());
-    case C_PUSH:
-      finalCode += codeWriter.writePushPop(C_PUSH, parser.arg1(), parser.arg2());
-    case C_POP:
-      finalCode += codeWriter.writePushPop(C_POP, parser.arg1(), parser.arg2());
+    if(parser.commandType() == C_ARITHMETIC){
+      codeWriter.writeArithmetic(parser.getCmd());
     }
+    else if(parser.commandType() == C_PUSH){
+      codeWriter.writePushPop(C_PUSH, parser.arg1(), parser.arg2());
+    } 
   }
 }

@@ -55,10 +55,10 @@ class Parser{
   int arg2();
 
   /**
-	*  getter
-	*
-	*  @return the current command
-	*/
+   *  getter
+   *
+   *  @return the current command
+   */
   std::string getCmd();
 
  private:
