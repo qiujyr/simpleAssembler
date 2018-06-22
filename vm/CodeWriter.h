@@ -52,6 +52,7 @@ class CodeWriter{
   std::string code1 = std::string("@SP\n") + "M=M-1\n" + "A=M\n" + "D=M\n"
     + "@SP\n" + "M=M-1\n" + "A=M\n";
   std::string compare(bool isArithmetic, std::string condition);
+  int labelCount;
 };
 
 #endif

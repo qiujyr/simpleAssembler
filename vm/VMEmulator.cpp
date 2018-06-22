@@ -18,4 +18,5 @@ int main(int argc, char* argv[]) {
       codeWriter.writePushPop(C_PUSH, parser.arg1(), parser.arg2());
     } 
   }
+  codeWriter.close();
 }
