@@ -49,6 +49,9 @@ class CodeWriter{
  private:
   std::ofstream fout;
   std::string filename;
+  std::string code1 = std::string("@SP\n") + "M=M-1\n" + "A=M\n" + "D=M\n"
+    + "@SP\n" + "M=M-1\n" + "A=M\n";
+  std::string compare(bool isArithmetic, std::string condition);
 };
 
 #endif
