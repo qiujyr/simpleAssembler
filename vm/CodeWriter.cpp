@@ -42,15 +42,32 @@ void CodeWriter::writeArithmetic(std::string command) {
 
 void CodeWriter::writePushPop(cmdType type, std::string segment, int index) {
   if (type == C_POP) {
+    if (segment == "temp") {
+      fout << "@" << base(segment) + index << "\n" << "D=A\n" << "@R13\n"
+	   << "M=D\n" << "@SP\n" << "M=M-1\n" << "A=M\n" << "D=M\n"
+	   << "@R13\n" << "A=M\n" << "M=D\n";
+    }
+    else {
+      fout << "@" << base(segment) << "\n" << "D=M\n" << "@"
+	   << index << "\n" << "D=D+A\n" << "@R13\n"
+	   << "M=D\n" << "@SP\n" << "M=M-1\n" << "A=M\n" << "D=M\n"
+	   << "@R13\n" << "A=M\n" << "M=D\n";
+    }
   }
+
   else {//type is C_PUSH
     if (segment == "constant") {
       fout << "@" << index << "\n" << "D=A\n" << "@SP\n"
-	   << "A=M\n" << "M=D\n" << "@SP\n" << "M=M+1\n";
+	   << "A=M\n" << "M=D\n";
     }
-    
+
+    else {
+      fout << "@" << base(segment) << "\n" << "D=M\n" << "@"
+	   << index << "\n" << "A=D+A\n" << "D=M\n" << "@SP\n"
+	   << "A=M\n" << "M=D\n";
+    }
     //increment sp by 1
-    //fout << "@SP\n" << "M=M+1\n";
+    fout << "@SP\n" << "M=M+1\n";
   }
 }
 
@@ -74,3 +91,14 @@ std::string CodeWriter::compare(bool isArithmetic, std::string condition){
     + std::to_string(labelCount) + ")\n" + "D=-1\n" + "@SP\n"
     + "A=M\n" + "M=D\n" + "(OUT" + std::to_string(labelCount) + ")\n"; 
 }
+
+ int CodeWriter::base(std::string segment){
+   int returnBase(0);
+   if (segment == "local") returnBase = 1;
+   else if (segment == "argument") returnBase = 2;
+   else if (segment == "this") returnBase = 3;
+   else if (segment == "that") returnBase = 4;
+   else if (segment == "pointer") returnBase = 3;
+   else if (segment == "temp") returnBase = 5;
+   return returnBase;
+ }

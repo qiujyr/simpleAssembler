@@ -11,12 +11,15 @@ int main(int argc, char* argv[]) {
   CodeWriter codeWriter(outputFile);
   while (parser.hasMoreCommands()) {
     parser.advance();
-    if(parser.commandType() == C_ARITHMETIC){
+    if (parser.commandType() == C_ARITHMETIC) {
       codeWriter.writeArithmetic(parser.getCmd());
     }
-    else if(parser.commandType() == C_PUSH){
+    else if (parser.commandType() == C_PUSH) {
       codeWriter.writePushPop(C_PUSH, parser.arg1(), parser.arg2());
-    } 
+    }
+    else if (parser.commandType() == C_POP) {
+      codeWriter.writePushPop(C_POP, parser.arg1(), parser.arg2());
+    }
   }
   codeWriter.close();
 }

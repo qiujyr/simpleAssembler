@@ -53,6 +53,7 @@ class CodeWriter{
     + "@SP\n" + "M=M-1\n" + "A=M\n";
   std::string compare(bool isArithmetic, std::string condition);
   int labelCount;
+  int base(std::string segment);
 };
 
 #endif
