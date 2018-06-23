@@ -226,10 +226,7 @@ A=M
 M=M-D
 @SP
 M=M+1
-@5
-D=M
-@6
-A=D+A
+@11
 D=M
 @SP
 A=M

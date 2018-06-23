@@ -61,6 +61,10 @@ void CodeWriter::writePushPop(cmdType type, std::string segment, int index) {
 	   << "A=M\n" << "M=D\n";
     }
 
+    else if (segment == "temp"){
+      fout << "@" << base(segment) + index << "\n" << "D=M\n"
+	   << "@SP\n" << "A=M\n" << "M=D\n";
+    }
     else {
       fout << "@" << base(segment) << "\n" << "D=M\n" << "@"
 	   << index << "\n" << "A=D+A\n" << "D=M\n" << "@SP\n"
