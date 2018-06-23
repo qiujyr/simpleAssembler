@@ -2,11 +2,14 @@
 #include <iostream>
 CodeWriter::CodeWriter(std::string filename) {
   fout.open(filename.c_str());
+  setFileName(filename);
   labelCount = 0;
 }
 
 void CodeWriter::setFileName(std::string fname){
-  filename = fname;
+  filename = fname.substr(fname.find_last_of('/') + 1);
+  filename = filename.substr(0, filename.find(".asm"));
+  filename[0] = toupper(filename[0]);
 }  
 
 void CodeWriter::writeArithmetic(std::string command) {
@@ -42,10 +45,15 @@ void CodeWriter::writeArithmetic(std::string command) {
 
 void CodeWriter::writePushPop(cmdType type, std::string segment, int index) {
   if (type == C_POP) {
-    if (segment == "temp") {
+    if (segment == "temp" || segment == "pointer") {
       fout << "@" << base(segment) + index << "\n" << "D=A\n" << "@R13\n"
 	   << "M=D\n" << "@SP\n" << "M=M-1\n" << "A=M\n" << "D=M\n"
 	   << "@R13\n" << "A=M\n" << "M=D\n";
+    }
+
+    else if (segment == "static") {
+      fout << "@SP\n" << "M=M-1\n" << "A=M\n" << "D=M\n" << "@"
+	   << filename << "." << std::to_string(index) << "\n" << "M=D\n";
     }
     else {
       fout << "@" << base(segment) << "\n" << "D=M\n" << "@"
@@ -61,7 +69,11 @@ void CodeWriter::writePushPop(cmdType type, std::string segment, int index) {
 	   << "A=M\n" << "M=D\n";
     }
 
-    else if (segment == "temp"){
+    else if (segment == "static"){
+      fout << "@" << filename << "." << std::to_string(index) << "\n"
+	   << "D=M\n" << "@SP\n" << "A=M\n" << "M=D\n";
+    }
+    else if (segment == "temp" || segment == "pointer") {
       fout << "@" << base(segment) + index << "\n" << "D=M\n"
 	   << "@SP\n" << "A=M\n" << "M=D\n";
     }
